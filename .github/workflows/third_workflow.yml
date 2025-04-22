@@ -7,6 +7,12 @@ jobs:
     steps:
       - name: List Files and Copy Repo
         run: ls -a
-      - uses: actions/checkout@v4
+      # - uses: actions/checkout@v4
+      - name: Copy Files
+        run: |
+          git init
+          git remote and origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}github.com/ilya-shp/$GITHUB_REPOSITORY.git"
+          git fetch origin
+          git checkout main
       - name: List Files
         run: ls -a
